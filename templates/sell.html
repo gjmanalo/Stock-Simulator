@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<form action="/sell" method="post">
+
+    <div class="mb-3">
+        <label for="symbol">Choose Stock: </label>
+        <select name="symbol" id = "symbol">
+            {%for row in portfoliolist2 %}
+            {% if totalshares[loop.index - 1] > 0 %}
+              <option>{{ row.symbol }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="how many shares to sell?" type="text">
+    </div>
+<p></p>
+
+            <div class="mb-3">
+            <p> Shares Sold: &nbsp <strong> {{ sharessold }}</strong></p>
+            <p> Profit: &nbsp <strong>{{ profit }}</strong></p>
+            <p> Cash Remaining: &nbsp <strong>{{ remainder }}</strong></p>
+            </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+</form>
+{% endblock %}

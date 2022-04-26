@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">symbol</th>
+        <th scope="col">shares</th>
+        <th scope="col">action</th>
+        <th scope="col">price_per_share</th>
+        <th scope="col">total_value_at_action</th>
+        <th scope="col">timestamp</th>
+      </tr>
+    </thead>
+    {%for row in history%}
+    <tbody>
+      <tr>
+        <th>{{row.id}}</th>
+        <td>{{row.symbol}}</td>
+        <td>{{row.shares}}</td>
+        <td>{{row.action}}</td>
+        <td>{{row.price_per_share}}</td>
+        <td>{{row.total_value_at_action}}</td>
+        <td>{{row.timestamp}}</td>
+    {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+  {% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">symbol</th>
+        <th scope="col">shares</th>
+        <th scope="col">current_price</th>
+        <th scope="col">total_value</th>
+        <th scope="col">cash balance</th>
+        <th scope="col">portfolio_value</th>
+      </tr>
+    </thead>
+    {% for row in portfoliolist %}
+    {% if totalshares[loop.index - 1] > 0 %}
+
+
+    <tbody>
+      <tr>
+        <th>{{row.symbol}}</th>
+        <td>{{ totalshares[loop.index - 1] }}</td>
+        <td>{{ currentprice[loop.index - 1] }}</td>
+        <td>{{ totalvalue[loop.index - 1] }}</td>
+
+        {% endif %}
+        {% endfor %}
+
+        {%for row in user%}
+        <td>{{row.cash}}</td>
+        <td>{{row.cash + totalvalues}}</td>
+        {% endfor %}
+
+      </tr>
+    </tbody>
+  </table>
+  <form action="/" method="post">
+      <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="addcash" name="addcash" placeholder="Amount to add" type="text">
+      </div>
+        <button class="btn btn-primary" type="submit">Add Cash</button>
+ </form>
+  {% endblock %}
