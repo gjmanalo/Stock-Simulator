@@ -2,22 +2,25 @@
 nav .navbar-brand
 {
     font-size: xx-large;
+    background-color: #101010;
 }
-
+    *{
+    background-color: #101010;
+}
 /* Colors for brand */
 nav .navbar-brand .blue
 {
-    color: #537fbe;
+    color: #45A29E;
 }
 nav .navbar-brand .red
 {
-    color: #ea433b;
+    color: #C5C6C7;
 }
-nav .navbar-brand .yellow
-{
-    color: #f5b82e;
+
+.mb-3 {
+    color: white;
 }
-nav .navbar-brand .green
-{
-    color: #2e944b;
+
+.btn {
+    color: white;
 }

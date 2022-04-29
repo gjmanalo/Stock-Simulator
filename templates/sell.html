@@ -8,11 +8,11 @@
 <form action="/sell" method="post">
 
     <div class="mb-3">
-        <label for="symbol">Choose Stock: </label>
-        <select name="symbol" id = "symbol">
+        <label for="symbol" >Choose Stock: </label>
+        <select name="symbol" id = "symbol" style = "color: white">
             {%for row in portfoliolist2 %}
             {% if totalshares[loop.index - 1] > 0 %}
-              <option>{{ row.symbol }}</option>
+              <option style = "color: white">{{ row.symbol }}</option>
             {% endif %}
             {% endfor %}
           </select>
